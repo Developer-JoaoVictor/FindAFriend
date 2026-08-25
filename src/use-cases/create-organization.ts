@@ -1,7 +1,7 @@
 import { hash } from "bcryptjs";
 import type { Organization } from "../entities/organization.js";
 import type { OrganizationsRepository } from "../repositories/organizations-repository.js";
-import { OrganizationAlreadyExistsError } from "./errors/organizartion-already-exists.js";
+import { OrganizationAlreadyExistsError } from "./errors/organization-already-exists.js";
 
 interface CreateOrganizationRequest {
   name: string;

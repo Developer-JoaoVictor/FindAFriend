@@ -2,9 +2,9 @@ import type { Organization } from "../entities/organization.js";
 
 export interface CreateOrganizationData {
   name: string;
-  responsibleName: string;
+  responsible_name: string;
   email: string;
-  passwordHash: string;
+  password_hash: string;
   cep: string;
   address: string;
   city: string;

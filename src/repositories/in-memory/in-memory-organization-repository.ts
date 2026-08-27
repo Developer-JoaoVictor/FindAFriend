@@ -12,9 +12,9 @@ export class InMemoryOrganizationRepository implements OrganizationsRepository {
     const organization = {
       id: randomUUID(),
       name: data.name,
-      responsibleName: data.responsibleName,
+      responsible_name: data.responsible_name,
       email: data.email,
-      passwordHash: data.passwordHash,
+      password_hash: data.password_hash,
       cep: data.cep,
       address: data.address,
       city: data.city,

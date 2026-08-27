@@ -5,7 +5,7 @@ import { OrganizationAlreadyExistsError } from "./errors/organization-already-ex
 
 interface CreateOrganizationRequest {
   name: string;
-  responsibleName: string;
+  responsible_name: string;
   email: string;
   password: string;
   cep: string;
@@ -23,7 +23,7 @@ export class CreateOrganizationUseCase {
 
   async execute({
     name,
-    responsibleName,
+    responsible_name,
     email,
     password,
     cep,
@@ -38,13 +38,13 @@ export class CreateOrganizationUseCase {
       throw new OrganizationAlreadyExistsError();
     }
 
-    const passwordHash = await hash(password, 12);
+    const password_hash = await hash(password, 12);
 
     const organization = await this.organizationsRepository.create({
       name,
-      responsibleName,
+      responsible_name,
       email,
-      passwordHash,
+      password_hash,
       cep,
       address,
       city,

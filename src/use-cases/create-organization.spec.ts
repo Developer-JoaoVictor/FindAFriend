@@ -16,7 +16,7 @@ describe("Create Organization Use Case", () => {
   it("should be able to create organization", async () => {
     const { organization } = await sut.execute({
       name: "Pets Loves",
-      responsibleName: "Jonh Doe",
+      responsible_name: "Jonh Doe",
       email: "johndoe@email.com",
       password: "123456",
       cep: "00000000",
@@ -33,7 +33,7 @@ describe("Create Organization Use Case", () => {
 
     await sut.execute({
       name: "Pets Loves",
-      responsibleName: "Jonh Doe",
+      responsible_name: "Jonh Doe",
       email,
       password: "123456",
       cep: "00000000",
@@ -45,7 +45,7 @@ describe("Create Organization Use Case", () => {
     await expect(
       sut.execute({
         name: "Pets Loves",
-        responsibleName: "Jonh Doe",
+        responsible_name: "Jonh Doe",
         email,
         password: "123456",
         cep: "00000000",
@@ -59,7 +59,7 @@ describe("Create Organization Use Case", () => {
   it("should hash organization password upon registration", async () => {
     const { organization } = await sut.execute({
       name: "Pets Loves",
-      responsibleName: "Jonh Doe",
+      responsible_name: "Jonh Doe",
       email: "johndoe@email.com",
       password: "123456",
       cep: "00000000",
@@ -70,7 +70,7 @@ describe("Create Organization Use Case", () => {
 
     const isPasswordCorrectlyHashed = await compare(
       "123456",
-      organization.passwordHash,
+      organization.password_hash,
     );
 
     expect(isPasswordCorrectlyHashed).toBe(true);

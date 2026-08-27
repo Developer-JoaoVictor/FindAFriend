@@ -8,5 +8,5 @@ export interface Organization {
   address: string;
   city: string;
   whatsapp: string;
-  createdAt: Date;
+  created_at: Date;
 }

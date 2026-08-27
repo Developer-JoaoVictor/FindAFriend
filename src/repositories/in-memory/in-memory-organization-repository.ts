@@ -19,7 +19,7 @@ export class InMemoryOrganizationRepository implements OrganizationsRepository {
       address: data.address,
       city: data.city,
       whatsapp: data.whatsapp,
-      createdAt: new Date(),
+      created_at: new Date(),
     };
 
     this.items.push(organization);

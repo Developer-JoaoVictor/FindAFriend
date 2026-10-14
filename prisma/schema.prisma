@@ -7,6 +7,17 @@ datasource db {
   provider = "postgresql"
 }
 
+enum PetType {
+  DOG
+  CAT
+}
+
+enum PetSize {
+  SMALL
+  MEDIUM
+  LARGE
+}
+
 model Organization {
   id               String   @id @default(uuid())
   name             String
@@ -18,6 +29,27 @@ model Organization {
   city             String
   whatsapp         String
   created_at       DateTime @default(now())
+  pets             Pet[]
 
   @@map("organizations")
+}
+
+model Pet {
+  id                 String       @id @default(uuid())
+  name               String
+  about              String
+  type               PetType
+  age                Int
+  size               PetSize
+  energy_level       Int
+  independence_level Int
+  environment        String
+  requirements       String[]     @default([])
+  is_available       Boolean      @default(true)
+  organization_id    String
+  organization       Organization @relation(fields: [organization_id], references: [id])
+  created_at         DateTime     @default(now())
+
+  @@index([organization_id])
+  @@map("pets")
 }
